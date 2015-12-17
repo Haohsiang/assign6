@@ -23,12 +23,19 @@ class Enemy{
 
 	boolean isCollideWithFighter()
 	{
-		return false;
+	  if(isHit(this.x, this.y ,this.enemyImg.width, this.enemyImg.height, fighter.x, fighter.y, fighter.fighterImg.width, fighter.fighterImg.height) == true){
+       return true;
+   }else{
+       return false;}
 	}
 
 	boolean isOutOfBorder()
 	{
-		return false;
+	  if(this.x > width){
+       return true;
+  }else{
+       return false;
+  }
 	}
 
 
@@ -97,9 +104,12 @@ void addDiamondEnemy()
 		}
 	}
 }
+
 void addEnemyStrong()
 {
 	for (int i = 0; i < 5; ++i) {
 		enemys[i] = new Enemy(0, 40+ i * 85, FlightType.ENEMYSTRONG);
 	}
 }
+
+
